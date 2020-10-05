@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import Dashboard from './Components/Dashboard/Dashboard';
+import Form from './Components/Form/Form';
+import Header from './Components/Header/Header';
+import Product from './Components/Product/Product';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      dummyArray: [{name: 1, price: 1, image: 1},
+        {name: 2, price: 2, image: 2},
+        {name: 3, price: 3, image: 3},]
+    }
+  }
 
-export default App;
+  render(){
+  return (
+    <div>
+      <Dashboard dummyArray={this.state.dummyArray}/>
+      <Form />
+      <Header />
+      <Product />
+    </div>
+  )
+  }
+}
